@@ -24,7 +24,7 @@ public class AlunoEntity {
     private String nome;
 
     @Column(name = "curso", nullable = false)
-    private String curso;
+    private Long idCurso;
 
     @Column(name = "cpf", nullable = false)
     private String cpf;
