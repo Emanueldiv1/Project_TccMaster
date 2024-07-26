@@ -23,8 +23,9 @@ public class AlunoEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "curso", nullable = false)
-    private Long idCurso;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="curso_id", nullable=true)
+    private CursoEntity curso;
 
     @Column(name = "cpf", nullable = false)
     private String cpf;
