@@ -23,7 +23,7 @@ public class AlunoEntity {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="curso_id", nullable=true)
     private CursoEntity curso;
 

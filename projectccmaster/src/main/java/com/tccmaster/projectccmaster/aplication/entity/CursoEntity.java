@@ -19,4 +19,6 @@ public class CursoEntity {
 
     @Column(name = "nome", nullable = false)
     private String nome;
+
+
 }

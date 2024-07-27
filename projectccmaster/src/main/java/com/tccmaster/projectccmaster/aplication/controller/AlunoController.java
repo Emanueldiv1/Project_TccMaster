@@ -12,16 +12,18 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.UUID;
 
+
 @RestController
 @RequestMapping("/alunos")
 public class AlunoController {
     @Autowired
-    AlunoRepository alunoRepository;
+    private AlunoRepository alunoRepository;
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AlunoEntity saveAlunos(@RequestBody AlunoEntity alunos) {
-        return alunoRepository.save(alunos);
+    public AlunoEntity saveAlunos(@RequestBody AlunoEntity aluno) {
+        return alunoRepository.save(aluno);
     }
 
 
@@ -33,7 +35,7 @@ public class AlunoController {
 
 
     @GetMapping
-    public List<AlunoEntity> listaAluno(AlunoEntity filterAlunos) {
+    public List<AlunoEntity> listarAluno(AlunoEntity filterAlunos) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()
                 .withIgnoreCase()
@@ -46,11 +48,11 @@ public class AlunoController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateAluno(@PathVariable UUID id, @RequestBody AlunoEntity alunos) {
+    public void updateAluno(@PathVariable UUID id, @RequestBody AlunoEntity aluno) {
         alunoRepository.findById(id)
                 .map(alunoExist -> {
-                    alunos.setId(alunoExist.getId());
-                    alunoRepository.save(alunos);
+                    aluno.setId(alunoExist.getId());
+                    alunoRepository.save(aluno);
                     return alunoExist;
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado"));
     }
@@ -65,6 +67,5 @@ public class AlunoController {
 
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Aluno não encontrado"));
     }
-
 
 }
