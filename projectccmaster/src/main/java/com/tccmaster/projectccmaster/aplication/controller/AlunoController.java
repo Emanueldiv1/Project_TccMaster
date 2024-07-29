@@ -30,7 +30,7 @@ public class AlunoController {
     @GetMapping("{id}")
     public AlunoEntity getAlunoById(@PathVariable UUID id) {
         return alunoRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno nao encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado"));
     }
 
 

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,5 +29,9 @@ public class OrientadorEntity {
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
+    @OneToMany
+    @JoinColumn(name = "id_orientador", nullable = true)
+    private List<AlunoEntity> aluno;
 
 }
