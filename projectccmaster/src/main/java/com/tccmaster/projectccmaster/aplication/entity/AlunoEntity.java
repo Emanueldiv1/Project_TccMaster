@@ -1,5 +1,6 @@
 package com.tccmaster.projectccmaster.aplication.entity;
 
+import com.tccmaster.projectccmaster.aplication.dto.AlunoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,4 +33,5 @@ public class AlunoEntity {
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
 }

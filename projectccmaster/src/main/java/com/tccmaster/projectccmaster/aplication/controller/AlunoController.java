@@ -1,5 +1,6 @@
 package com.tccmaster.projectccmaster.aplication.controller;
 
+import com.tccmaster.projectccmaster.aplication.dto.AlunoDTO;
 import com.tccmaster.projectccmaster.aplication.entity.AlunoEntity;
 import com.tccmaster.projectccmaster.aplication.repository.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,15 @@ public class AlunoController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado"));
     }
 
-
     @GetMapping
+   public List<AlunoDTO> listarTodos(){
+        List<AlunoEntity> alunos = alunoRepository.findAll();
+        return alunos.stream().map(AlunoDTO::new).toList();
+    }
+
+
+
+   @GetMapping("/completo")
     public List<AlunoEntity> listarAluno(AlunoEntity filterAlunos) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()
