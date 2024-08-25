@@ -31,7 +31,7 @@ public class CursoController {
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Curso Não encontrado"));
     }
 
-    @GetMapping
+    @GetMapping("/todos")
     public List<CursoEntity> listarCursos(CursoEntity filterCursos) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()

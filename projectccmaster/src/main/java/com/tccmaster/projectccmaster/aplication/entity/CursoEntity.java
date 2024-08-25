@@ -15,7 +15,7 @@ import lombok.Setter;
 public class CursoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Column(name = "nome", nullable = false)
     private String nome;

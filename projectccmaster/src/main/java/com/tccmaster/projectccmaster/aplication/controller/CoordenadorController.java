@@ -39,7 +39,8 @@ public class CoordenadorController {
                 .withStringMatcher(
                         ExampleMatcher.StringMatcher.CONTAINING
                 );
-        Example example = Example.of(filterCoordenador, matcher);
+        Example
+        example = Example.of(filterCoordenador, matcher);
         return coordenadorRepositor.findAll(example);
     }
 
@@ -59,7 +60,7 @@ public class CoordenadorController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCoordenador(@PathVariable UUID id){
         coordenadorRepositor.findById(id)
-               .map(coordenador -> {
+                .map(coordenador -> {
                     coordenadorRepositor.delete(coordenador);
                     return coordenador;
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Coordenador não encontrado"));
