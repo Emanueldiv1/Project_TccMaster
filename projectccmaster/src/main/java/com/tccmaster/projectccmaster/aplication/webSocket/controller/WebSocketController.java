@@ -7,7 +7,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 
 public class WebSocketController {
     @MessageMapping("/chat/{salaId}")
-    @SendTo("/orientacao/{salaId}")
+    @SendTo("/chat/mensagem/{salaId}")
     public ChatMensagem chat(@DestinationVariable String salaId, ChatMensagem mensagem){
         return new ChatMensagem(mensagem.getMensagem(), mensagem.getUser());
     }
