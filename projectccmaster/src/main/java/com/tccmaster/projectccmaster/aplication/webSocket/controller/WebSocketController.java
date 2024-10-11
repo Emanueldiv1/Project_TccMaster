@@ -11,7 +11,6 @@ public class WebSocketController {
     @MessageMapping("/chat/{roomId}") // endpoint para receber a mensagem
     @SendTo("/topic/{roomId}") // endpoint para enviar a mensagem
     public ChatMessage chat(@DestinationVariable String roomId, ChatMessage message){
-        System.out.println(message);
         return new ChatMessage(message.getMessage(), message.getUser());
     }
 }
